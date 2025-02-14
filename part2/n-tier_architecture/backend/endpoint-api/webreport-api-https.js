@@ -247,10 +247,10 @@ const init = async () => {
               AgentStatus
             );
 
-            //---------------- Websocket Part2 Start ---------------------
+//---------------- Websocket Part2 Start ---------------------
 
-            
-            //---------------- Websocket Part2 End -----------------------
+
+//---------------- Websocket Part2 End -----------------------
 
           if (responsedata.statusCode == 500)
             return h
