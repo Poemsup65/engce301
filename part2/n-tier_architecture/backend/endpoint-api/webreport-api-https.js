@@ -162,7 +162,7 @@ const init = async () => {
         //return ('API1');
 
         if (param.agentcode == null)
-          return h.response('Please provide agentcode.').code(400);
+          return h.response({error:'Please provide agentcode.'}).code(400);
         else {
           const responsedata =
             await OnlineAgent.OnlineAgentRepo.getOnlineAgentByAgentCode(
@@ -171,14 +171,14 @@ const init = async () => {
 
           if (responsedata.statusCode == 500)
             return h
-              .response('Something went wrong. Please try again later.')
+              .response({'error':'Something went wrong. Please try again later.'})
               .code(500);
           else if (responsedata.statusCode == 200) return responsedata;
           else if (responsedata.statusCode == 404)
             return h.response(responsedata).code(404);
           else
             return h
-              .response('Something went wrong. Please try again later.')
+              .response({'error':'Something went wrong. Please try again later.'})
               .code(500);
         }
       } catch (err) {
@@ -234,7 +234,7 @@ const init = async () => {
         console.log(AgentStatus);
 
         if (AgentCode == null)
-          return h.response('Please provide agentcode.').code(400);
+          return h.response({error:'Please provide agentcode.'}).code(400);
         else {
           const responsedata =
             await OnlineAgent.OnlineAgentRepo.postOnlineAgentStatus(
@@ -246,14 +246,14 @@ const init = async () => {
 
           if (responsedata.statusCode == 500)
             return h
-              .response('Something went wrong. Please try again later.')
+              .response({'error':'Something went wrong. Please try again later.'})
               .code(500);
           else if (responsedata.statusCode == 200) return responsedata;
           else if (responsedata.statusCode == 404)
             return h.response(responsedata).code(404);
           else
             return h
-              .response('Something went wrong. Please try again later.')
+              .response({'error':'Something went wrong. Please try again later.'})
               .code(500);
         }
       } catch (err) {
